@@ -1,0 +1,43 @@
+name: Download Video from YouTube
+
+on:
+  # اینجا می‌تونید یا توسط دستور ساخت، یا فایل ورودی دریافت کنید
+  workflow_dispatch: # برای استفاده از "Run manually" در پیشنهاد شده
+    inputs:
+      video_url:
+        description: 'YouTube URL of the video'
+        required: true
+        type: string
+
+jobs:
+  download-video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup yt-dlp
+        uses: danielmiessler/yt-dlp-action@v3.0.0 # این ویژه‌ای برای دانلود ویدیو با یوتیوب
+        with:
+          url: ${{ inputs.video_url }}
+          output: "video.mp4" # نام فایل خروجی
+          format: bestvideo+bestaudio/best # بهترین کیفیت ممکن
+
+      - name: Save video to file
+        run: |
+          echo "✅ Video downloaded successfully!"
+          ls -lh video.mp4 2>/dev/null || echo "⚠️ Video not found!"
+
+      - name: Upload artifact (optional)
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: downloaded-video
+          path: video.mp4
+          retention-days: 7
+
+      - name: Cleanup
+        run: |
+          # حذف فایل تولید شده (در صورت نیاز)
+          rm video.mp4 || true
