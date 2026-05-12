@@ -34,45 +34,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Check activation status
-        id: check
-        run: |
-          echo "========================================"
-          echo "🔍 بررسی وضعیت فعالسازی..."
-          echo "========================================"
-          if [ -f "activate.txt" ]; then
-            STORED_CODE=$(grep -oP 'code=\K.*' activate.txt | head -1 || echo "")
-            echo "stored_code=$STORED_CODE" >> $GITHUB_OUTPUT
-            if [ -n "$STORED_CODE" ]; then
-              echo "is_activated=true" >> $GITHUB_OUTPUT
-              echo "✅ وضعیت: فعال شده"
-              echo "🎉 دانلودر شما فعال است!"
-            else
-              echo "is_activated=false" >> $GITHUB_OUTPUT
-              echo "🔒 وضعیت: فعال نشده"
-            fi
-          else
-            echo "is_activated=false" >> $GITHUB_OUTPUT
-            echo "stored_code=" >> $GITHUB_OUTPUT
-            echo "🔒 وضعیت: فعال نشده"
-            echo "⚠️ برای استفاده از دانلودر، ابتدا باید آن را فعال کنید"
-          fi
-          echo "========================================"
-
-  activate:
-    needs: check-activation
-    if: needs.check-activation.outputs.is_activated == 'false' && github.event.inputs.activation_code != ''
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
   save-file:
-    needs: check-activation
-    if: needs.check-activation.outputs.is_activated == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:
