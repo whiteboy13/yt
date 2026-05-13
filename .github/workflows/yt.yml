@@ -144,8 +144,8 @@ jobs:
           ZIP_PASSWORD="${YT_PASSWORD}"
           DOWNLOAD_SUBS="${{ github.event.inputs.download_subtitles }}"
 
-          # REDUCED from 90MB to 90MB - under GitHub's 50MB recommendation
-          SPLIT_MB=90
+          # REDUCED from 200MB to 200MB - under GitHub's 50MB recommendation
+          SPLIT_MB=200
           SPLIT_BYTES=$(( SPLIT_MB * 1024 * 1024 ))
 
           # Create safe backup location for our files
@@ -359,7 +359,7 @@ jobs:
           REPO_OWNER=$(cat /tmp/yt_repo_owner.txt)
           REPO_NAME=$(cat /tmp/yt_repo_name.txt)
           BRANCH=$(cat /tmp/yt_branch.txt)
-          SPLIT_MB=90
+          SPLIT_MB=200
           SPLIT_BYTES=$(( SPLIT_MB * 1024 * 1024 ))
           mapfile -t URL_LIST < /tmp/yt_urls.txt
           TOTAL_URLS=${#URL_LIST[@]}
