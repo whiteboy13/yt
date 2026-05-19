@@ -15,7 +15,7 @@
 | Property | Value |
 |----------|-------|
 | **Video Name** | `تعریف-کمک-های-اولیه` |
-| **Original Link** | [YouTube Video](https://www.youtube.com/watch?v=s5xi2eh_EzA&list=PLxJsQdhJ2JiT3Mi_EBmeCoMGqR2lNqHzB&index=1) |
+| **Original Link** | [YouTube Video](https://www.youtube.com/watch?v=s5xi2eh_EzA&list=PLxJsQdhJ2JiT3Mi_EBmeCoMGqR2lNqHzB&index=10) |
 | **Total Size** | **1 file** (no split) - **15.56 MB** |
 | **Quality** | **720** |
 | **Status** | **Complete (100%)** |
