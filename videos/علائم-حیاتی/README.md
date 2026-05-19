@@ -15,8 +15,8 @@
 | Property | Value |
 |----------|-------|
 | **Video Name** | `علائم-حیاتی` |
-| **Original Link** | [YouTube Video](https://www.youtube.com/watch?v=9mm7nRe5B1U&list=PLxJsQdhJ2JiT3Mi_EBmeCoMGqR2lNqHzB&index=4) |
-| **Total Size** | **1 file** (no split) - **17.48 MB** |
+| **Original Link** | [YouTube Video](https://www.youtube.com/watch?v=LydqmMgo3t4&list=PLxJsQdhJ2JiT3Mi_EBmeCoMGqR2lNqHzB&index=20) |
+| **Total Size** | **1 file** (no split) - **22.34 MB** |
 | **Quality** | **720** |
 | **Status** | **Complete (100%)** |
 | **Password Protected** | **NO** |
